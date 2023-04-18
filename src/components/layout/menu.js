@@ -24,7 +24,7 @@ import {
   Feedback,
   Logout,
 } from "@mui/icons-material";
-import classes from "./menu.modules.css";
+import classes from "./menu.module.css";
 
 const drawerWidth = 240;
 
@@ -38,11 +38,11 @@ const mainItens = [
 ];
 
 const secondaryItens = [
-  { title: "Settings", icon: <Settings color="#8F8F8F" /> },
-  { title: "Billing", icon: <AccountBalance color="#8F8F8F" /> },
-  { title: "Support", icon: <SupportAgent color="#8F8F8F" /> },
-  { title: "Feedback", icon: <Feedback color="#8F8F8F" /> },
-  { title: "Logout", icon: <Logout color="#8F8F8F" /> },
+  { title: "Settings", icon: <Settings color="text.secondary" /> },
+  { title: "Billing", icon: <AccountBalance color="text.secondary" /> },
+  { title: "Support", icon: <SupportAgent color="text.secondary" /> },
+  { title: "Feedback", icon: <Feedback color="text.secondary" /> },
+  { title: "Logout", icon: <Logout color="text.secondary" /> },
 ];
 
 export default function CustomMenu({ isOpen, handleClose }) {

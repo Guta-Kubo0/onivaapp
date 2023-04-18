@@ -3,7 +3,7 @@ import { Box, Button, Container, Paper, Typography } from "@mui/material";
 
 export default function DefaultCard(props) {
   return (
-    <Paper elevation={2} sx={{ width: "400px", height: "175px" }}>
+    <Paper elevation={2} sx={{ width: "400px", height: "250px" }}>
       <Container
         sx={{
           display: "flex",
@@ -28,7 +28,7 @@ export default function DefaultCard(props) {
           </Paper>
         </Box>
         <Box>
-          <Typography variant="h6" color="text.primary">
+          <Typography variant="h6" color="text.primary" mt={2}>
             {props.teamtitle}
           </Typography>
         </Box>
@@ -39,32 +39,66 @@ export default function DefaultCard(props) {
             justifyContent: "flex-start",
             flexDirection: "row",
           }}
+          mt={1}
         >
           <Box
             sx={{
               display: "flex",
-              alignItems: "flex-start",
-              justifyContent: "flex-start",
-              flexDirection: "row",
+              alignItems: "center",
+              justifyContent: "center",
+              flexDirection: "column",
             }}
+            mt={2}
           >
-            {props.icon1}
-            <Typography variant="body2" color="text.primary">
-              {props.title1}
-            </Typography>
+            <Box
+              sx={{
+                display: "flex",
+                alignItems: "flex-start",
+                justifyContent: "flex-start",
+                flexDirection: "row",
+              }}
+              mr={2}
+            >
+              {props.icon1}
+              <Typography variant="body2" color="text.primary" ml={1}>
+                {props.title1}
+              </Typography>
+            </Box>
+            <Box>
+              <Typography variant="h6" color="text.primary">
+                {props.firstindicador}
+              </Typography>
+            </Box>
           </Box>
+
           <Box
             sx={{
               display: "flex",
-              alignItems: "flex-start",
-              justifyContent: "flex-start",
-              flexDirection: "row",
+              alignItems: "center",
+              justifyContent: "center",
+              flexDirection: "column",
             }}
+            mt={2}
           >
-            {props.icon2}
-            <Typography variant="body2" color="text.primary">
-              {props.title2}
-            </Typography>
+            <Box
+              sx={{
+                display: "flex",
+                alignItems: "flex-start",
+                justifyContent: "flex-start",
+                flexDirection: "row",
+              }}
+              mr={2}
+            >
+              {props.icon1}
+              <Typography variant="body2" color="text.primary" ml={1}>
+                {props.title1}
+              </Typography>
+            </Box>
+            <Box>
+              <Typography variant="h6" color="text.primary">
+                {props.secondindicador}
+              </Typography>
+            </Box>
           </Box>
         </Box>
       </Container>
