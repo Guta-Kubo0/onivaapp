@@ -10,11 +10,10 @@ import {
   MenuItem,
 } from "@mui/material";
 import BackgroundLetterAvatars from "../../components/layout/backgroundletteravatars";
-import classes from "./goalscard.module.css";
 
 const seeMoreOptions = ["See Goal Details", "Edit Goal", "Cancel Goal"];
 
-export default function GoalsCard(props) {
+export default function MemberGoalsCard(props) {
   const [goalOptions, setGoalOptions] = React.useState(null);
 
   const handleOpenGoalMenu = (event) => {
@@ -100,7 +99,7 @@ export default function GoalsCard(props) {
           mb={2}
           mt={2}
         >
-          <BackgroundLetterAvatars className={classes.avatarstyles} />
+          <BackgroundLetterAvatars />
           <Typography variant="subtitle1" color="text.primary" ml={2}>
             {props.deadline}
           </Typography>
