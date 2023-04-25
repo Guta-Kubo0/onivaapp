@@ -16,7 +16,14 @@ export default function EditTeamGoal({ isOpen, handleClose }) {
   return (
     <Dialog open={isOpen} onClose={handleClose} fullWidth={true}>
       <DialogTitle>Edit Goal</DialogTitle>
-      <DialogContent>
+      <DialogContent
+        sx={{
+          display: "flex",
+          alignItems: "flex-start",
+          justifyContent: "space-between",
+          flexDirection: "column",
+        }}
+      >
         <Box display={"flex"} alignItems={"center"} justifyContent={"center"}>
           <TextField
             autoFocus
@@ -66,7 +73,7 @@ export default function EditTeamGoal({ isOpen, handleClose }) {
           <DatePicker
             label="Deadline"
             slotProps={{
-              textField: { size: "small" },
+              textField: { size: "medium" },
             }}
           />
         </LocalizationProvider>

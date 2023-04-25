@@ -5,25 +5,20 @@ import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogTitle from "@mui/material/DialogTitle";
-import InputLabel from "@mui/material/InputLabel";
-import MenuItem from "@mui/material/MenuItem";
-import FormControl from "@mui/material/FormControl";
-import Select from "@mui/material/Select";
 import {
   Box,
+  FormControl,
   IconButton,
+  InputLabel,
+  MenuItem,
+  Select,
   Tooltip,
-  Checkbox,
-  Typography,
-  FormHelperText,
 } from "@mui/material";
-import { EmojiEmotions } from "@mui/icons-material";
+import { Edit, EmojiEmotions } from "@mui/icons-material";
 import { DatePicker, LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 
-const checkboxLabel = { inputProps: { "aria-label": "Checkbox send message" } };
-
-export default function AddMemberGoal({ isOpen, handleClose }) {
+export default function SeeDetailsMemberGoal({ isOpen, handleClose }) {
   const [teamMember, setTeamMember] = React.useState("");
 
   const handleChange = (event) => {
@@ -31,7 +26,14 @@ export default function AddMemberGoal({ isOpen, handleClose }) {
   };
   return (
     <Dialog open={isOpen} onClose={handleClose} fullWidth={true}>
-      <DialogTitle>Create Goal</DialogTitle>
+      <Box display={"flex"} alignItems={"center"}>
+        <DialogTitle>See Goal Details</DialogTitle>
+        <Tooltip title="Edit Goal">
+          <IconButton aria-label="Edit Goal" size="large">
+            <Edit color="primary" />
+          </IconButton>
+        </Tooltip>
+      </Box>
       <DialogContent
         sx={{
           display: "flex",
@@ -40,13 +42,7 @@ export default function AddMemberGoal({ isOpen, handleClose }) {
           flexDirection: "column",
         }}
       >
-        <Box
-          sx={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
+        <Box display="flex" justifyContent="center" alignItems="center">
           <TextField
             autoFocus
             margin="dense"
@@ -89,9 +85,7 @@ export default function AddMemberGoal({ isOpen, handleClose }) {
             <MenuItem value={"John Doe"}>John Doe</MenuItem>
             <MenuItem value={"Ciclano da Silva"}>Ciclano da Silva</MenuItem>
           </Select>
-          <FormHelperText>Required Field</FormHelperText>
         </FormControl>
-
         <TextField
           autoFocus
           multiline
@@ -123,19 +117,10 @@ export default function AddMemberGoal({ isOpen, handleClose }) {
             }}
           />
         </LocalizationProvider>
-        <Box sx={{ display: "flex", alignItems: "center", marginTop: "2%" }}>
-          <Checkbox {...checkboxLabel} defaultChecked />
-          <Typography variant="body2" color="text.secondary">
-            Send a message informing the addition of this goal
-          </Typography>
-        </Box>
       </DialogContent>
       <DialogActions>
-        <Button variant="outlined" color="primary" onClick={handleClose}>
-          Cancel
-        </Button>
         <Button variant="contained" color="primary" onClick={handleClose}>
-          Create
+          Ok
         </Button>
       </DialogActions>
     </Dialog>

@@ -1,7 +1,7 @@
 import { ThemeProvider, createTheme } from "@mui/material";
 import "./App.css";
-import { Groups } from "@mui/icons-material";
-import GoalsPage from "./pages/Goals/teamgoalspage";
+import Team1ClaimsPage from "./pages/Claims/team1claimspage";
+import CommandsPage from "./pages/Commands/commandspage";
 
 const Theme = createTheme({
   typography: { fontFamily: "Roboto, sans-serif" },
@@ -17,7 +17,7 @@ const Theme = createTheme({
 function App() {
   return (
     <ThemeProvider theme={Theme}>
-      <GoalsPage icon={<Groups color="primary" />} goalstitle="Teams Goals" />
+      <CommandsPage />
     </ThemeProvider>
   );
 }

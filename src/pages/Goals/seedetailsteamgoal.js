@@ -16,13 +16,20 @@ export default function SeeDetailsTeamGoal({ isOpen, handleClose }) {
       <Box display={"flex"} alignItems={"center"}>
         <DialogTitle>See Goal Details</DialogTitle>
         <Tooltip title="Edit Goal">
-          <IconButton>
+          <IconButton aria-label="Edit Goal" size="large">
             <Edit color="primary" />
           </IconButton>
         </Tooltip>
       </Box>
-      <DialogContent>
-        <Box display={"flex"} alignItems={"center"} justifyContent={"center"}>
+      <DialogContent
+        sx={{
+          display: "flex",
+          alignItems: "flex-start",
+          justifyContent: "space-between",
+          flexDirection: "column",
+        }}
+      >
+        <Box display="flex" justifyContent="center" alignItems="center">
           <TextField
             autoFocus
             margin="dense"
@@ -30,7 +37,6 @@ export default function SeeDetailsTeamGoal({ isOpen, handleClose }) {
             label="Goal Title"
             type="text"
             variant="outlined"
-            helperText="Required Field"
             size="medium"
             fullWidth
           />
@@ -65,13 +71,12 @@ export default function SeeDetailsTeamGoal({ isOpen, handleClose }) {
           fullWidth
           variant="outlined"
           size="medium"
-          helperText="Required Field"
         />
         <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale="pt-br">
           <DatePicker
             label="Deadline"
             slotProps={{
-              textField: { size: "small" },
+              textField: { size: "medium" },
             }}
           />
         </LocalizationProvider>

@@ -10,10 +10,50 @@ import {
   MenuItem,
 } from "@mui/material";
 import BackgroundLetterAvatars from "../../components/layout/backgroundletteravatars";
-
-const seeMoreOptions = ["See Goal Details", "Edit Goal", "Cancel Goal"];
+import CancelGoal from "./cancelGoal";
+import EditMemberGoal from "./editmembergoal";
+import SeeDetailsMemberGoal from "./seedetailsmembergoal";
 
 export default function MemberGoalsCard(props) {
+  const [isCancelGoalDialogOpen, setIsCancelGoalDialogOpenDialogOpen] =
+    React.useState(false);
+
+  const handleCancelGoalDialogOpen = () => {
+    setIsCancelGoalDialogOpenDialogOpen(true);
+  };
+
+  const handleCancelGoalDialogClose = () => {
+    setIsCancelGoalDialogOpenDialogOpen(false);
+  };
+
+  const [isEditGoalDialogOpen, setIsEditGoalDialogOpenDialogOpen] =
+    React.useState(false);
+
+  const handleEditlGoalDialogOpen = () => {
+    setIsEditGoalDialogOpenDialogOpen(true);
+  };
+
+  const handleEditGoalDialogClose = () => {
+    setIsEditGoalDialogOpenDialogOpen(false);
+  };
+
+  const [isSeeDetailsGoalDialogOpen, setIsSeeDetailsGoalDialogOpenDialogOpen] =
+    React.useState(false);
+
+  const handleSeeDetailsGoalDialogOpen = () => {
+    setIsSeeDetailsGoalDialogOpenDialogOpen(true);
+  };
+
+  const handleSeeDetailsGoalDialogClose = () => {
+    setIsSeeDetailsGoalDialogOpenDialogOpen(false);
+  };
+
+  const seeMoreOptions = [
+    { label: "See Goal Details", onClick: handleSeeDetailsGoalDialogOpen },
+    { label: "Edit Goal", onClick: handleEditlGoalDialogOpen },
+    { label: "Cancel Goal", onClick: handleCancelGoalDialogOpen },
+  ];
+
   const [goalOptions, setGoalOptions] = React.useState(null);
 
   const handleOpenGoalMenu = (event) => {
@@ -29,6 +69,18 @@ export default function MemberGoalsCard(props) {
         backgroundColor: "#B4D5ED",
       }}
     >
+      <CancelGoal
+        isOpen={isCancelGoalDialogOpen}
+        handleClose={handleCancelGoalDialogClose}
+      />
+      <EditMemberGoal
+        isOpen={isEditGoalDialogOpen}
+        handleClose={handleEditGoalDialogClose}
+      />
+      <SeeDetailsMemberGoal
+        isOpen={isSeeDetailsGoalDialogOpen}
+        handleClose={handleSeeDetailsGoalDialogClose}
+      />
       <Box
         sx={{
           display: "flex",
@@ -82,8 +134,13 @@ export default function MemberGoalsCard(props) {
               onClose={handleCloseGoalMenu}
             >
               {seeMoreOptions.map((seemoreoptions) => (
-                <MenuItem key={seemoreoptions} onClick={handleCloseGoalMenu}>
-                  <Typography textAlign="center">{seemoreoptions}</Typography>
+                <MenuItem
+                  key={seemoreoptions.label}
+                  onClick={seemoreoptions.onClick}
+                >
+                  <Typography textAlign="center">
+                    {seemoreoptions.label}
+                  </Typography>
                 </MenuItem>
               ))}
             </Menu>

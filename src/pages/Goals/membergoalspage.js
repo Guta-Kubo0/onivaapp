@@ -1,16 +1,16 @@
 import * as React from "react";
 import { Box, Paper, Typography, Grid, Stack } from "@mui/material";
-import { Groups } from "@mui/icons-material";
-import TeamGoalsCard from "./teamgoalscard";
+import { Person } from "@mui/icons-material";
+import MemberGoalsCard from "./membergoalscard";
 
-export default function TeamGoalsPage() {
+export default function MemberGoalsPage({ handleClose }) {
   return (
     <Paper elevation={2}>
       <Stack>
         <Box sx={{ display: "flex", alignItems: "center" }} ml={2} mt={2}>
-          <Groups color="primary" />
+          <Person color="primary" />
           <Typography variant="h6" color="text.primary" ml={2}>
-            Teams Goals
+            Individual Goals
           </Typography>
         </Box>
         <Grid container mt={2} alignItems="center" sx={{ width: `100%` }}>
@@ -19,7 +19,7 @@ export default function TeamGoalsPage() {
               <Typography variant="h6" color="text.primary">
                 To Accomplish
               </Typography>
-              <TeamGoalsCard
+              <MemberGoalsCard
                 goaldescription="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
                 deadline="Apr. 19 2023"
               />
@@ -30,7 +30,7 @@ export default function TeamGoalsPage() {
               <Typography variant="h6" color="text.primary">
                 Accomplishing
               </Typography>
-              <TeamGoalsCard
+              <MemberGoalsCard
                 goaldescription="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
                 deadline="Apr. 19 2023"
               />
@@ -41,7 +41,7 @@ export default function TeamGoalsPage() {
               <Typography variant="h6" color="text.primary">
                 Accomplished
               </Typography>
-              <TeamGoalsCard
+              <MemberGoalsCard
                 goaldescription="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
                 deadline="Apr. 19 2023"
               />

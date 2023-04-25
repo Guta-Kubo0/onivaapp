@@ -9,7 +9,7 @@ import {
   Menu,
   MenuItem,
 } from "@mui/material";
-import CancelGoal from "./cancelGoal";
+import CancelGoal from "./cancelgoal";
 import EditTeamGoal from "./editteamgoal";
 import SeeDetailsTeamGoal from "./seedetailsteamgoal";
 

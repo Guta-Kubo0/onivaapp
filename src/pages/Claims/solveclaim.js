@@ -10,31 +10,33 @@ import { Typography, Box } from "@mui/material";
 
 const checkboxLabel = { inputProps: { "aria-label": "Checkbox send message" } };
 
-export default function CancelGoal({ isOpen, handleClose }) {
+export default function SolveClaim({ isOpen, handleClose }) {
   return (
     <Dialog
       open={isOpen}
       onClose={handleClose}
-      aria-labelledby="cancel-goal"
-      aria-describedby="cancel-goal"
+      aria-labelledby="solve-claim"
+      aria-describedby="solve-claim"
     >
-      <DialogTitle id="alert-dialog-title">{"Cancel Goal?"}</DialogTitle>
+      <DialogTitle id="alert-dialog-title">{"Solve Claim?"}</DialogTitle>
       <DialogContent>
         <DialogContentText id="alert-dialog-description">
-          Are you sure you want to cancel this goal? You can not undone this
-          action.
+          Are you sure you want to change the status of this claim? By doing
+          this, you indicate that you have already purchased the reward and have
+          everything organized to deliver it to the winner. You can not undone
+          this action.
         </DialogContentText>
         <Box display={"flex"} alignItems={"center"} mt={2}>
           <Checkbox {...checkboxLabel} defaultChecked />
           <Typography variant="body2" color="text.secondary">
-            Send a message informing that this goal was cancelled
+            Send a message informing that this claim was solved
           </Typography>
         </Box>
       </DialogContent>
       <DialogActions>
-        <Button onClick={handleClose}> Do not Cancel</Button>
+        <Button onClick={handleClose}>Cancel</Button>
         <Button onClick={handleClose} autoFocus>
-          Cancel Goal
+          Confirm
         </Button>
       </DialogActions>
     </Dialog>

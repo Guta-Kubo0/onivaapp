@@ -23,7 +23,7 @@ import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 
 const checkboxLabel = { inputProps: { "aria-label": "Checkbox send message" } };
 
-export default function AddMemberGoal({ isOpen, handleClose }) {
+export default function EditMemberGoal({ isOpen, handleClose }) {
   const [teamMember, setTeamMember] = React.useState("");
 
   const handleChange = (event) => {
@@ -31,7 +31,7 @@ export default function AddMemberGoal({ isOpen, handleClose }) {
   };
   return (
     <Dialog open={isOpen} onClose={handleClose} fullWidth={true}>
-      <DialogTitle>Create Goal</DialogTitle>
+      <DialogTitle>Edit Goal</DialogTitle>
       <DialogContent
         sx={{
           display: "flex",
@@ -126,7 +126,7 @@ export default function AddMemberGoal({ isOpen, handleClose }) {
         <Box sx={{ display: "flex", alignItems: "center", marginTop: "2%" }}>
           <Checkbox {...checkboxLabel} defaultChecked />
           <Typography variant="body2" color="text.secondary">
-            Send a message informing the addition of this goal
+            Send a message informing the edition of this goal
           </Typography>
         </Box>
       </DialogContent>
@@ -135,7 +135,7 @@ export default function AddMemberGoal({ isOpen, handleClose }) {
           Cancel
         </Button>
         <Button variant="contained" color="primary" onClick={handleClose}>
-          Create
+          Save Changes
         </Button>
       </DialogActions>
     </Dialog>
