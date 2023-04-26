@@ -1,7 +1,7 @@
 import { ThemeProvider, createTheme } from "@mui/material";
 import "./App.css";
-import Team1ClaimsPage from "./pages/Claims/team1claimspage";
-import CommandsPage from "./pages/Commands/commandspage";
+import FeedbackPage from "./pages/Feedback/feedbackpage";
+import SupportDialog from "./pages/Support/supportdialog";
 
 const Theme = createTheme({
   typography: { fontFamily: "Roboto, sans-serif" },
@@ -17,7 +17,7 @@ const Theme = createTheme({
 function App() {
   return (
     <ThemeProvider theme={Theme}>
-      <CommandsPage />
+      <SupportDialog />
     </ThemeProvider>
   );
 }

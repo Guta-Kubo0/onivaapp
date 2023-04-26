@@ -23,7 +23,6 @@ export default function GoalsPage() {
             flexGrow: 1,
             alignItems: "flex-start",
             justifyContent: "flex-start",
-            zIndex: "10",
           }}
           className={classes.boxstyles}
         >
