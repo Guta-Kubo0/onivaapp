@@ -38,7 +38,6 @@ const mainItens = [
 ];
 
 const secondaryItens = [
-  { title: "Settings", icon: <Settings color="text.secondary" /> },
   { title: "Billing", icon: <AccountBalance color="text.secondary" /> },
   { title: "Support", icon: <SupportAgent color="text.secondary" /> },
   { title: "Feedback", icon: <Feedback color="text.secondary" /> },

@@ -14,6 +14,7 @@ import MenuItem from "@mui/material/MenuItem";
 import logo from "./assets/logo.svg";
 import { Badge } from "@mui/material";
 import CustomMenu from "./menu";
+import BackgroundLetterAvatars from "./backgroundletteravatars";
 
 const settings = ["Profile"];
 
@@ -67,7 +68,7 @@ function Navbar() {
               <Box sx={{ flexGrow: 0 }}>
                 <Tooltip title="View Profile Settings">
                   <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                    <Avatar />
+                    <BackgroundLetterAvatars />
                   </IconButton>
                 </Tooltip>
                 <Menu

@@ -1,6 +1,5 @@
 import {
   Box,
-  Button,
   Container,
   FormControl,
   Input,
@@ -10,32 +9,9 @@ import {
 import Navbar from "../../components/layout/navbar";
 import PageTitle from "../../components/layout/pagetitle";
 import classes from "./commandspage.module.css";
-import { Edit } from "@mui/icons-material";
-import React, { useState } from "react";
+import React from "react";
 
 export default function CommandsPage() {
-  const [isDisabled, setIsDisabled] = useState(true);
-  const [showSaveButton, setShowSaveButton] = useState(false);
-  const [showCancelButton, setShowCancelButton] = useState(false);
-
-  const handleButtonClick = () => {
-    setIsDisabled(false);
-    setShowSaveButton(true);
-    setShowCancelButton(true);
-  };
-
-  const handleSaveButtonClick = () => {
-    setIsDisabled(true);
-    setShowSaveButton(false);
-    setShowCancelButton(false);
-  };
-
-  const handleCancelButtonClick = () => {
-    setIsDisabled(true);
-    setShowSaveButton(false);
-    setShowCancelButton(false);
-  };
-
   return (
     <Container
       sx={{
@@ -61,14 +37,6 @@ export default function CommandsPage() {
           justifyContent={"space-between"}
         >
           <PageTitle pagetitle="Commands" />
-          <Button
-            variant="contained"
-            color="primary"
-            startIcon={<Edit />}
-            onClick={handleButtonClick}
-          >
-            Edit Commands
-          </Button>
         </Box>
         <Box mb={4}>
           <Paper elevation={2}>
@@ -76,7 +44,7 @@ export default function CommandsPage() {
               <Typography variant="h6" color="text.primary" mb={2}>
                 Send Extra Onipoints
               </Typography>
-              <FormControl variant="outlined" fullWidth disabled={isDisabled}>
+              <FormControl variant="filled" fullWidth disabled>
                 <Input
                   id="send-extra-onipoints-command"
                   defaultValue={
@@ -89,10 +57,10 @@ export default function CommandsPage() {
               <Typography variant="h6" color="text.primary" mb={2}>
                 Claim Team Rewards
               </Typography>
-              <FormControl variant="outlined" fullWidth disabled={isDisabled}>
+              <FormControl variant="filled" fullWidth disabled>
                 <Input
                   id="claim-team-reward-command"
-                  defaultValue={"claimteamreward for {team name}"}
+                  defaultValue={"claimteamreward for @teamname"}
                 />
               </FormControl>
             </Box>
@@ -100,10 +68,10 @@ export default function CommandsPage() {
               <Typography variant="h6" color="text.primary" mb={2}>
                 Send Leaderboard to the Team
               </Typography>
-              <FormControl variant="outlined" fullWidth disabled={isDisabled}>
+              <FormControl variant="filled" fullWidth disabled>
                 <Input
                   id="send-leaderboard-team-command"
-                  defaultValue={"sendleaderboardtoeverybody for {team name}"}
+                  defaultValue={"sendleaderboardtoeverybody for @team name"}
                 />
               </FormControl>
             </Box>
@@ -111,38 +79,36 @@ export default function CommandsPage() {
               <Typography variant="h6" color="text.primary" mb={2}>
                 Send Leaderboard to Someone
               </Typography>
-              <FormControl variant="outlined" fullWidth disabled={isDisabled}>
+              <FormControl variant="filled" fullWidth disabled>
                 <Input
                   id="send-leaderboard-someone-command"
-                  defaultValue={"sendleaderboard to @username"}
+                  defaultValue={"sendleaderboard to @username @teamname"}
                 />
               </FormControl>
-              <Box
-                display={"flex"}
-                alignItems={"center"}
-                justifyContent={"flex-end"}
-                mt={4}
-              >
-                {showCancelButton && (
-                  <Button
-                    variant="outlined"
-                    color="primary"
-                    onClick={handleCancelButtonClick}
-                    sx={{ marginRight: "2%" }}
-                  >
-                    Cancelar
-                  </Button>
-                )}
-                {showSaveButton && (
-                  <Button
-                    variant="contained"
-                    color="primary"
-                    onClick={handleSaveButtonClick}
-                  >
-                    Save Changes
-                  </Button>
-                )}
-              </Box>
+            </Box>
+            <Box p={4}>
+              <Typography variant="h6" color="text.primary" mb={2}>
+                Change the status of an individual goal to accomplished
+              </Typography>
+              <FormControl variant="filled" fullWidth disabled>
+                <Input
+                  id="change-individual-goal-status-command"
+                  defaultValue={
+                    "@username @teamname accomplishedgoal {goaltitle}"
+                  }
+                />
+              </FormControl>
+            </Box>
+            <Box p={4}>
+              <Typography variant="h6" color="text.primary" mb={2}>
+                Change the status of a team goal to accomplished
+              </Typography>
+              <FormControl variant="filled" fullWidth disabled>
+                <Input
+                  id="change-individual-goal-status-command"
+                  defaultValue={"@teamname accomplishedgoal {goaltitle}"}
+                />
+              </FormControl>
             </Box>
           </Paper>
         </Box>
