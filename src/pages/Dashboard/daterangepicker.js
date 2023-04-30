@@ -1,10 +1,6 @@
 import React, { useState } from "react";
-import { Box, Divider, Grid } from "@mui/material";
-import {
-  DatePicker,
-  LocalizationProvider,
-  MobileDatePicker,
-} from "@mui/x-date-pickers";
+import { Box } from "@mui/material";
+import { DatePicker, LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 
 function DateRangePicker() {
