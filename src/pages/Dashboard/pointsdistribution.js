@@ -159,7 +159,7 @@ export default function PointsDistributedTable() {
       onipointsEarned: "5000",
       accomplishedGoal: "Lorem ipsum, lorem ipsum, lorem ipsum",
       earnedAt: "2023/04/12",
-      status: "Approved",
+      status: "Cancelled",
     },
   ];
   return (
@@ -178,6 +178,13 @@ export default function PointsDistributedTable() {
       <DataGrid
         rows={onipointsGridRows}
         columns={onipointsGridColumns}
+        isRowSelectable={(grid) => {
+          if (grid.row.status === "Cancelled") {
+            return false;
+          } else {
+            return true;
+          }
+        }}
         checkboxSelection
         onRowSelectionModelChange={(e) => {
           setSelectedRows(e);
