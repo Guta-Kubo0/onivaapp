@@ -10,7 +10,7 @@ import {
   MenuItem,
 } from "@mui/material";
 import BackgroundLetterAvatars from "../../components/layout/backgroundletteravatars";
-import CancelGoal from "./cancelGoal";
+import CancelGoal from "./cancelgoal";
 import EditMemberGoal from "./editmembergoal";
 import SeeDetailsMemberGoal from "./seedetailsmembergoal";
 

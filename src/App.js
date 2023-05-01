@@ -1,6 +1,7 @@
 import { ThemeProvider, createTheme } from "@mui/material";
 import "./App.css";
 import DashboardPage from "./pages/Dashboard/dashboardpage";
+import Team1GoalsPage from "./pages/Goals/team1goalspage";
 
 const Theme = createTheme({
   typography: { fontFamily: "Roboto, sans-serif" },

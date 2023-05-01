@@ -1,13 +1,23 @@
-import { Box, Chip, Container, Grid, Paper, Typography } from "@mui/material";
+import React from "react";
+import {
+  Box,
+  Button,
+  Chip,
+  Container,
+  Grid,
+  Paper,
+  Typography,
+} from "@mui/material";
 import Navbar from "../../components/layout/navbar";
 import PageTitle from "../../components/layout/pagetitle";
 import classes from "./dashboardpage.module.css";
-import React from "react";
-import DateRangePicker from "./daterangepicker";
 import Leaderboard from "./leaderboard";
 import FirstPlace from "./assets/firstplace.png";
 import RewardsClaimsTable from "./rewardclaims";
 import PointsDistributedTable from "./pointsdistribution";
+import PointsDistributionChart from "./pointsdistributionchart";
+import { ClaimsIndividualRewardChart } from "./claimindividualrewardchart";
+import CustomDateRangePicker from "./daterangepicker";
 
 export default function DashboardPage(props) {
   const leaderGridRows: GridRowsProp = [
@@ -98,13 +108,29 @@ export default function DashboardPage(props) {
             }}
           >
             <Paper elevation={2} width={"100%"}>
-              <DateRangePicker />
+              <CustomDateRangePicker />
             </Paper>
           </Box>
         </Box>
-        <Grid container spacing={1}>
+        <Box mt={4}>
+          <Paper elevation={2} sx={{ width: "100%", padding: "2%" }}>
+            <Typography
+              variant="h4"
+              color="text.primary"
+              sx={{
+                marginLeft: "1%",
+                marginTop: "1%",
+                marginBottom: "2%",
+              }}
+            >
+              Onipoints Distribution
+            </Typography>
+            <PointsDistributionChart />
+          </Paper>
+        </Box>
+        <Grid container spacing={2} mt={4}>
           <Grid item xs={12} md={8}>
-            <Paper elevation={2} sx={{ padding: "1%", width: "fit-content" }}>
+            <Paper elevation={2} sx={{ padding: "2%", width: "fit-content" }}>
               <Typography
                 variant="h4"
                 color="text.primary"
@@ -120,7 +146,7 @@ export default function DashboardPage(props) {
                     backgroundColor: "#EAD8F2",
                     marginLeft: "2%",
                     height: "fit-content",
-                    width: "110%",
+                    width: "100%",
                   }}
                 >
                   <Box
@@ -151,6 +177,29 @@ export default function DashboardPage(props) {
               </Box>
             </Paper>
           </Grid>
+          <Grid item xs={12} md={4}>
+            <Paper
+              elevation={2}
+              display={"flex"}
+              alignItems={"center"}
+              justifyContent={"center"}
+              flexDirection={"column"}
+              sx={{ padding: "2%", width: "100%", height: "456px" }}
+            >
+              <Box mt={2}>
+                <Typography
+                  variant="h4"
+                  color="text.primary"
+                  textAlign="center"
+                  sx={{ marginBottom: "5%" }}
+                >
+                  The most claimed individual reward
+                </Typography>
+              </Box>
+
+              <ClaimsIndividualRewardChart />
+            </Paper>
+          </Grid>
         </Grid>
         <Box mt={4}>
           <Paper elevation={2} sx={{ width: "fit-content", padding: "2%" }}>
@@ -164,7 +213,7 @@ export default function DashboardPage(props) {
             <RewardsClaimsTable />
           </Paper>
         </Box>
-        <Box mt={4}>
+        <Box mt={4} mb={4}>
           <Paper elevation={2} sx={{ width: "fit-content", padding: "2%" }}>
             <Typography
               variant="h4"
