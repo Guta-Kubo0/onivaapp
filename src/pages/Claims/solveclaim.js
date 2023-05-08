@@ -23,8 +23,8 @@ export default function SolveClaim({ isOpen, handleClose }) {
         <DialogContentText id="alert-dialog-description">
           Are you sure you want to change the status of this claim? By doing
           this, you indicate that you have already purchased the reward and have
-          everything organized to deliver it to the winner. You can not undone
-          this action.
+          everything organized to deliver it to the winner. This action cannot
+          be undone.
         </DialogContentText>
         <Box display={"flex"} alignItems={"center"} mt={2}>
           <Checkbox {...checkboxLabel} defaultChecked />

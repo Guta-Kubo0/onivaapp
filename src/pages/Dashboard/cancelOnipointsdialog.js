@@ -21,8 +21,8 @@ export default function CancelOnipoints({ isOpen, handleClose }) {
       <DialogTitle id="alert-dialog-title">{"Cancel Onipoints?"}</DialogTitle>
       <DialogContent>
         <DialogContentText id="alert-dialog-description">
-          Are you sure you want to cancel this onipoints? You can not undone
-          this action.
+          Are you sure you want to cancel this onipoints? This action cannot be
+          undone.
         </DialogContentText>
         <Box display={"flex"} alignItems={"center"} mt={2}>
           <Checkbox {...checkboxLabel} defaultChecked />
