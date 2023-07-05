@@ -1,9 +1,9 @@
 import { Box, Container } from "@mui/material";
 import Navbar from "../../components/layout/navbar";
 import PageTitle from "../../components/layout/pagetitle";
-import classes from "./claimspage.module.css";
-import TeamClaimsTable from "./teamclaimstable";
-import MemberClaimsTable from "./memberclaimstable";
+import TeamClaimsTable from "./components/team-claims-table";
+import MemberClaimsTable from "./components/member-claims-table";
+import styles from "./index.module.css";
 
 export default function Team1ClaimsPage() {
   return (
@@ -23,7 +23,7 @@ export default function Team1ClaimsPage() {
           alignItems: "flex-start",
           justifyContent: "flex-start",
         }}
-        className={classes.boxstyles}
+        className={styles.boxstyles}
       >
         <PageTitle pagetitle="Team 1" />
         <Box mt={4}>

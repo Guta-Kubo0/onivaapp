@@ -20,48 +20,22 @@ import FilterListIcon from "@mui/icons-material/FilterList";
 import { visuallyHidden } from "@mui/utils";
 import { MoreVert } from "@mui/icons-material";
 import { Menu, MenuItem } from "@mui/material";
-import CancelClaim from "./cancelclaim";
-import SolveClaim from "./solveclaim";
+import CancelClaim from "./cancel-claim";
+import SolveClaim from "./solve-claim";
 
-function createData(name, usedOnipoints, accomplishedGoal, reward, claimedAt) {
+function createData(requestedReward, usedOnipoints, claimedAt) {
   return {
-    name,
+    requestedReward,
     usedOnipoints,
-    accomplishedGoal,
-    reward,
     claimedAt,
   };
 }
 
 const rows = [
-  createData(
-    "John Doe",
-    "4000",
-    "Lorem Ipsun lorem ipsum lorem ipsum lorem ipsum  ",
-    "Lorem Ipsum",
-    "2023/04/15"
-  ),
-  createData(
-    "John Doe",
-    "4000",
-    "Lorem Ipsun lorem ipsum lorem ipsum lorem ipsum  ",
-    "Lorem Ipsum",
-    "2023/04/15"
-  ),
-  createData(
-    "John Doe",
-    "4000",
-    "Lorem Ipsun lorem ipsum lorem ipsum lorem ipsum  ",
-    "Lorem Ipsum",
-    "2023/04/15"
-  ),
-  createData(
-    "John Doe",
-    "4000",
-    "Lorem Ipsun lorem ipsum lorem ipsum lorem ipsum  ",
-    "Lorem Ipsum",
-    "2023/04/15"
-  ),
+  createData("Lorem Ipsum", "4000", "2023/04/15"),
+  createData("Lorem Ipsum", "4000", "2023/04/15"),
+  createData("Lorem Ipsum", "4000", "2023/04/15"),
+  createData("Lorem Ipsum", "4000", "2023/04/15"),
 ];
 
 function descendingComparator(a, b, orderBy) {
@@ -94,28 +68,16 @@ function stableSort(array, comparator) {
 
 const headCells = [
   {
-    id: "name",
+    id: "reward",
     numeric: false,
     disablePadding: false,
-    label: "Name",
+    label: "Requested Reward",
   },
   {
     id: "usedOnipoints",
     numeric: false,
     disablePadding: false,
     label: "Used Onipoints",
-  },
-  {
-    id: "accomplishedGoal",
-    numeric: false,
-    disablePadding: true,
-    label: "Accomplished Goal",
-  },
-  {
-    id: "reward",
-    numeric: false,
-    disablePadding: false,
-    label: "Reward",
   },
   {
     id: "claimedAt",
@@ -279,7 +241,7 @@ function EnhancedTableToolbar(props) {
           id="tableTitle"
           component="div"
         >
-          Individual Claims
+          Team Claims
         </Typography>
       )}
 
@@ -370,7 +332,7 @@ EnhancedTableToolbar.propTypes = {
   numSelected: PropTypes.number.isRequired,
 };
 
-export default function MemberClaimsTable() {
+export default function TeamClaimsTable() {
   const [order, setOrder] = React.useState(DEFAULT_ORDER);
   const [orderBy, setOrderBy] = React.useState(DEFAULT_ORDER_BY);
   const [selected, setSelected] = React.useState([]);
@@ -550,19 +512,10 @@ export default function MemberClaimsTable() {
                             }}
                           />
                         </TableCell>
-                        <TableCell
-                          component="th"
-                          id={labelId}
-                          scope="row"
-                          padding="none"
-                        >
-                          {row.name}
+                        <TableCell align="right">
+                          {row.requestedReward}
                         </TableCell>
                         <TableCell align="right">{row.usedOnipoints}</TableCell>
-                        <TableCell align="right">
-                          <LimitText text={row.accomplishedGoal} limit={30} />
-                        </TableCell>
-                        <TableCell align="right">{row.reward}</TableCell>
                         <TableCell align="right">{row.claimedAt}</TableCell>
                       </TableRow>
                     );

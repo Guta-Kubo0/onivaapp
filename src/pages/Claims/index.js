@@ -1,9 +1,9 @@
 import { Box, Container, Grid } from "@mui/material";
 import Navbar from "../../components/layout/navbar";
 import PageTitle from "../../components/layout/pagetitle";
-import classes from "./claimspage.module.css";
 import DefaultCard from "../../components/layout/defaultcard";
 import { PeopleAlt, Person } from "@mui/icons-material";
+import styles from "./index.module.css";
 
 export default function ClaimsPage() {
   return (
@@ -23,7 +23,7 @@ export default function ClaimsPage() {
           alignItems: "flex-start",
           justifyContent: "flex-start",
         }}
-        className={classes.boxstyles}
+        className={styles.boxstyles}
       >
         <PageTitle pagetitle="Rewards Claims Board" />
         <Grid container spacing={2} mt={2} alignItems="center">
