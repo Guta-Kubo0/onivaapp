@@ -7,7 +7,7 @@ import {
   GridToolbarFilterButton,
 } from "@mui/x-data-grid";
 import { useState } from "react";
-import CancelOnipoints from "./cancelOnipointsdialog";
+import CancelOnipoints from "./cancel-onipoints-dialog";
 import * as React from "react";
 
 const onipointsGridColumns: GridColDef = [

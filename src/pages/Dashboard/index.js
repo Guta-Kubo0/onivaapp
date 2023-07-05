@@ -1,23 +1,27 @@
 import React from "react";
 import {
   Box,
-  Button,
   Chip,
   Container,
   Grid,
   Paper,
+  Tooltip,
   Typography,
 } from "@mui/material";
 import Navbar from "../../components/layout/navbar";
 import PageTitle from "../../components/layout/pagetitle";
-import classes from "./dashboardpage.module.css";
-import Leaderboard from "./leaderboard";
+import styles from "./index.module.css";
+import Leaderboard from "./components/leaderboard";
 import FirstPlace from "./assets/firstplace.png";
-import RewardsClaimsTable from "./rewardclaims";
-import PointsDistributedTable from "./pointsdistribution";
-import PointsDistributionChart from "./pointsdistributionchart";
-import { ClaimsIndividualRewardChart } from "./claimindividualrewardchart";
-import CustomDateRangePicker from "./daterangepicker";
+import RewardsClaimsTable from "./components/reward-claims";
+import PointsDistributedTable from "./components/points-distribution";
+import PointsDistributionChart from "./components/points-distribution-chart";
+import { ClaimsIndividualRewardChart } from "./components/claim-individual-reward-chart";
+import CustomDateRangePicker from "./components/date-range-picker";
+import { HelpRounded } from "@mui/icons-material";
+import DelayedGoals from "./components/dalayed-goals";
+import TeamMemberProductivityTable from "./components/team-member-productivity-table";
+import TeamProductivityTable from "./components/team-productivity-table";
 
 export default function DashboardPage(props) {
   const leaderGridRows: GridRowsProp = [
@@ -66,7 +70,7 @@ export default function DashboardPage(props) {
           alignItems: "flex-start",
           justifyContent: "flex-start",
         }}
-        className={classes.boxstyles}
+        className={styles.boxstyles}
       >
         <Box
           display={"flex"}
@@ -100,17 +104,77 @@ export default function DashboardPage(props) {
             />
             <Chip label="Team 2" variant="outlined" color="primary" clickable />
           </Box>
-          <Box
-            sx={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "flex-end",
-            }}
-          >
-            <Paper elevation={2} width={"100%"}>
-              <CustomDateRangePicker />
-            </Paper>
-          </Box>
+        </Box>
+        <Box mt={4}>
+          <Paper elevation={2} sx={{ width: "100%", padding: "2%" }}>
+            <Box
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                justifyItems: "center",
+              }}
+            >
+              <Typography
+                variant="h4"
+                color="text.primary"
+                sx={{
+                  marginLeft: "1%",
+                  marginTop: "1%",
+                  marginBottom: "2%",
+                }}
+              >
+                Delayed Goals
+              </Typography>
+              <Tooltip title="This report does not change with the selection of dates. Its purpose is to facilitate the management of goals that are overdue in their completion dates">
+                <HelpRounded color="primary" sx={{ marginLeft: "1%" }} />
+              </Tooltip>
+            </Box>
+            <DelayedGoals />
+          </Paper>
+        </Box>
+        <Box
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "flex-end",
+            marginTop: "5%",
+          }}
+        >
+          <Paper elevation={2} width={"100%"}>
+            <CustomDateRangePicker />
+          </Paper>
+        </Box>
+        <Box mt={4}>
+          <Paper elevation={2} sx={{ width: "100%", padding: "2%" }}>
+            <Typography
+              variant="h4"
+              color="text.primary"
+              sx={{
+                marginLeft: "1%",
+                marginTop: "1%",
+                marginBottom: "2%",
+              }}
+            >
+              Team Member Productivity Report
+            </Typography>
+            <TeamMemberProductivityTable />
+          </Paper>
+        </Box>
+        <Box mt={4}>
+          <Paper elevation={2} sx={{ width: "100%", padding: "2%" }}>
+            <Typography
+              variant="h4"
+              color="text.primary"
+              sx={{
+                marginLeft: "1%",
+                marginTop: "1%",
+                marginBottom: "2%",
+              }}
+            >
+              Team Productivity Report
+            </Typography>
+            <TeamProductivityTable />
+          </Paper>
         </Box>
         <Box mt={4}>
           <Paper elevation={2} sx={{ width: "100%", padding: "2%" }}>

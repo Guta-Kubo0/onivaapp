@@ -1,5 +1,6 @@
 import { ThemeProvider, createTheme } from "@mui/material";
 import "./App.css";
+import DashboardPage from "./pages/Dashboard";
 import Team1ClaimsPage from "./pages/Claims/team-1-claims-page";
 
 const Theme = createTheme({
@@ -16,7 +17,7 @@ const Theme = createTheme({
 function App() {
   return (
     <ThemeProvider theme={Theme}>
-      <Team1ClaimsPage />
+      <DashboardPage />
     </ThemeProvider>
   );
 }
