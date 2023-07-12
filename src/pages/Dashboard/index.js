@@ -22,6 +22,7 @@ import { HelpRounded } from "@mui/icons-material";
 import DelayedGoals from "./components/dalayed-goals";
 import TeamMemberProductivityTable from "./components/team-member-productivity-table";
 import TeamProductivityTable from "./components/team-productivity-table";
+import EstimatedCostsChart from "./components/estimated-costs-chart ";
 
 export default function DashboardPage(props) {
   const leaderGridRows: GridRowsProp = [
@@ -106,7 +107,7 @@ export default function DashboardPage(props) {
           </Box>
         </Box>
         <Box mt={4}>
-          <Paper elevation={2} sx={{ width: "100%", padding: "2%" }}>
+          <Paper elevation={2} sx={{ width: "112%", padding: "2%" }}>
             <Box
               sx={{
                 display: "flex",
@@ -136,16 +137,16 @@ export default function DashboardPage(props) {
           sx={{
             display: "flex",
             alignItems: "center",
-            justifyContent: "flex-end",
+            justifyContent: "flex-start",
             marginTop: "5%",
           }}
         >
-          <Paper elevation={2} width={"100%"}>
+          <Paper elevation={2} width={"112%"} sx={{ padding: "1%" }}>
             <CustomDateRangePicker />
           </Paper>
         </Box>
         <Box mt={4}>
-          <Paper elevation={2} sx={{ width: "100%", padding: "2%" }}>
+          <Paper elevation={2} sx={{ width: "112%", padding: "2%" }}>
             <Typography
               variant="h4"
               color="text.primary"
@@ -161,7 +162,7 @@ export default function DashboardPage(props) {
           </Paper>
         </Box>
         <Box mt={4}>
-          <Paper elevation={2} sx={{ width: "100%", padding: "2%" }}>
+          <Paper elevation={2} sx={{ width: "112%", padding: "2%" }}>
             <Typography
               variant="h4"
               color="text.primary"
@@ -176,25 +177,12 @@ export default function DashboardPage(props) {
             <TeamProductivityTable />
           </Paper>
         </Box>
-        <Box mt={4}>
-          <Paper elevation={2} sx={{ width: "100%", padding: "2%" }}>
-            <Typography
-              variant="h4"
-              color="text.primary"
-              sx={{
-                marginLeft: "1%",
-                marginTop: "1%",
-                marginBottom: "2%",
-              }}
-            >
-              Onipoints Distribution
-            </Typography>
-            <PointsDistributionChart />
-          </Paper>
-        </Box>
         <Grid container spacing={2} mt={4}>
           <Grid item xs={12} md={8}>
-            <Paper elevation={2} sx={{ padding: "2%", width: "fit-content" }}>
+            <Paper
+              elevation={2}
+              sx={{ padding: "2%", width: "110%", height: "57vh" }}
+            >
               <Typography
                 variant="h4"
                 color="text.primary"
@@ -202,15 +190,19 @@ export default function DashboardPage(props) {
               >
                 Leaderboard
               </Typography>
-              <Box display={"flex"} alignItems={"center"} mt={4}>
+              <Box
+                display={"flex"}
+                alignItems={"center"}
+                justifyContent={"center"}
+                mt={4}
+              >
                 <Leaderboard data={leaderGridRows} />
                 <Paper
                   elevation={2}
                   sx={{
                     backgroundColor: "#EAD8F2",
                     marginLeft: "2%",
-                    height: "fit-content",
-                    width: "100%",
+                    width: "120%",
                   }}
                 >
                   <Box
@@ -222,7 +214,7 @@ export default function DashboardPage(props) {
                     <img
                       src={FirstPlace}
                       alt="firstplaceimage"
-                      style={{ width: "100%", height: "30vh" }}
+                      style={{ width: "12vw" }}
                     />
                     <Typography
                       variant="h6"
@@ -231,7 +223,7 @@ export default function DashboardPage(props) {
                       1st
                     </Typography>
                     <Typography
-                      variant="h4"
+                      variant="h5"
                       sx={{ color: "#E46646", textAlign: "center" }}
                     >
                       {firstPlace}
@@ -248,7 +240,12 @@ export default function DashboardPage(props) {
               alignItems={"center"}
               justifyContent={"center"}
               flexDirection={"column"}
-              sx={{ padding: "2%", width: "100%", height: "456px" }}
+              sx={{
+                padding: "5%",
+                width: "110%",
+                height: "fit-content",
+                marginLeft: "26%",
+              }}
             >
               <Box mt={2}>
                 <Typography
@@ -266,6 +263,22 @@ export default function DashboardPage(props) {
           </Grid>
         </Grid>
         <Box mt={4}>
+          <Paper elevation={2} sx={{ width: "112%", padding: "2%" }}>
+            <Typography
+              variant="h4"
+              color="text.primary"
+              sx={{
+                marginLeft: "1%",
+                marginTop: "1%",
+                marginBottom: "2%",
+              }}
+            >
+              Estimated Costs with Claims
+            </Typography>
+            <EstimatedCostsChart />
+          </Paper>
+        </Box>
+        <Box mt={4}>
           <Paper elevation={2} sx={{ width: "fit-content", padding: "2%" }}>
             <Typography
               variant="h4"
@@ -275,6 +288,22 @@ export default function DashboardPage(props) {
               Reward Claims
             </Typography>
             <RewardsClaimsTable />
+          </Paper>
+        </Box>
+        <Box mt={4}>
+          <Paper elevation={2} sx={{ width: "112%", padding: "2%" }}>
+            <Typography
+              variant="h4"
+              color="text.primary"
+              sx={{
+                marginLeft: "1%",
+                marginTop: "1%",
+                marginBottom: "2%",
+              }}
+            >
+              Onipoints Distribution
+            </Typography>
+            <PointsDistributionChart />
           </Paper>
         </Box>
         <Box mt={4} mb={4}>

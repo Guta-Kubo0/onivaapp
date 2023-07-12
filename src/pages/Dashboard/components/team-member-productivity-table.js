@@ -12,7 +12,7 @@ const teamMemberProductivityGridColumns: GridColDef = [
     field: "name",
     headerName: "Name",
     headerClassName: "col-styles",
-    width: 210,
+    width: 300,
   },
   {
     field: "assignedGoals",
@@ -37,7 +37,7 @@ const teamMemberProductivityGridColumns: GridColDef = [
     field: "onipointsReceived",
     headerName: "Onipoints Received",
     headerClassName: "col-styles",
-    width: 210,
+    width: 240,
   },
 ];
 

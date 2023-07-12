@@ -17,7 +17,7 @@ const Theme = createTheme({
 function App() {
   return (
     <ThemeProvider theme={Theme}>
-      <DashboardPage />
+      <Team1ClaimsPage />
     </ThemeProvider>
   );
 }

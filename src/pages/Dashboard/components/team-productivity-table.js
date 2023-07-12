@@ -3,7 +3,6 @@ import {
   DataGrid,
   GridToolbarContainer,
   GridToolbarExport,
-  GridToolbarFilterButton,
 } from "@mui/x-data-grid";
 import * as React from "react";
 
@@ -12,7 +11,7 @@ const teamProductivityGridColumns: GridColDef = [
     field: "assignedGoals",
     headerName: "Assigned Goals",
     headerClassName: "col-styles",
-    width: 250,
+    width: 300,
   },
   {
     field: "achievedOnTime",
@@ -31,7 +30,7 @@ const teamProductivityGridColumns: GridColDef = [
     field: "onipointsReceived",
     headerName: "Onipoints Received",
     headerClassName: "col-styles",
-    width: 220,
+    width: 280,
   },
 ];
 

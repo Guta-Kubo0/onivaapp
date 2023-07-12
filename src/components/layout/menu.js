@@ -41,7 +41,6 @@ const secondaryItens = [
   { title: "Billing", icon: <AccountBalance color="text.secondary" /> },
   { title: "Support", icon: <SupportAgent color="text.secondary" /> },
   { title: "Feedback", icon: <Feedback color="text.secondary" /> },
-  { title: "Logout", icon: <Logout color="text.secondary" /> },
 ];
 
 export default function CustomMenu({ isOpen, handleClose }) {
@@ -58,7 +57,7 @@ export default function CustomMenu({ isOpen, handleClose }) {
     return (
       <Box key={index + item.title} sx={{ marginLeft: "2%", marginTop: "1%" }}>
         <ListItem disablePadding>
-          <ListItemButton className={classes.customlistitembutton}>
+          <ListItemButton>
             <ListItemIcon>{item.icon}</ListItemIcon>
             <ListItemText
               primary={
@@ -76,21 +75,26 @@ export default function CustomMenu({ isOpen, handleClose }) {
 
   const secondaryMenu = secondaryItens.map((item, index) => {
     return (
-      <Box key={index + item.title} sx={{ marginLeft: "2%", marginTop: "1%" }}>
-        <ListItem disablePadding>
-          <ListItemButton className={classes.customlistitembutton}>
-            <ListItemIcon>{item.icon}</ListItemIcon>
-            <ListItemText
-              primary={
-                <Typography variant="body2" fontSize={12}>
-                  {item.title}
-                </Typography>
-              }
-              sx={{ color: "#8F8F8F" }}
-            />
-          </ListItemButton>
-        </ListItem>
-      </Box>
+      <>
+        <Box
+          key={index + item.title}
+          sx={{ marginLeft: "2%", marginTop: "1%" }}
+        >
+          <ListItem disablePadding>
+            <ListItemButton>
+              <ListItemIcon>{item.icon}</ListItemIcon>
+              <ListItemText
+                primary={
+                  <Typography variant="body2" fontSize={12}>
+                    {item.title}
+                  </Typography>
+                }
+                sx={{ color: "#8F8F8F" }}
+              />
+            </ListItemButton>
+          </ListItem>
+        </Box>
+      </>
     );
   });
 
@@ -113,8 +117,36 @@ export default function CustomMenu({ isOpen, handleClose }) {
       >
         <Toolbar />
         <List>{mainMenu}</List>
-        <div style={{ marginTop: "15vh" }}>
+        <div
+          style={{
+            marginTop: "15vh",
+          }}
+        >
           <List>{secondaryMenu}</List>
+          <List sx={{ marginTop: "35%" }}>
+            <ListItem disablePadding>
+              <ListItemButton
+                sx={{
+                  backgroundColor: "#4744A6",
+                  marginLeft: "5%",
+                  marginRight: "5%",
+                  borderRadius: "5px",
+                }}
+              >
+                <ListItemIcon>
+                  <Logout color="secondary" />
+                </ListItemIcon>
+                <ListItemText
+                  primary={
+                    <Typography variant="body2" fontSize={12}>
+                      Logout
+                    </Typography>
+                  }
+                  sx={{ color: "#fff" }}
+                />
+              </ListItemButton>
+            </ListItem>
+          </List>
         </div>
       </Drawer>
       <Box component="main" sx={{ flexGrow: 1, bgcolor: "transparent", p: 3 }}>
